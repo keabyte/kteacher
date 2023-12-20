@@ -1,0 +1,10 @@
+.cheat-sheet-tile {
+  background: rgba(73, 192, 248);
+  color: rgb(19, 31, 50);
+  border-radius: 14px;
+  padding: 10px;
+  aspect-ratio: 1 / 1;
+  text-align: center;
+  border-bottom: 6px solid rgb(24, 153, 214);
+  width: 10vw;
+}
