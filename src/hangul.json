@@ -1,0 +1,170 @@
+{
+  "simple_vowels": [
+    {
+      "hangul": "ㅏ",
+      "roman": "a"
+    },
+    {
+      "hangul": "ㅑ",
+      "roman": "ya"
+    },
+    {
+      "hangul": "ㅓ",
+      "roman": "eo"
+    },
+    {
+      "hangul": "ㅕ",
+      "roman": "yeo"
+    },
+    {
+      "hangul": "ㅗ",
+      "roman": "o"
+    },
+    {
+      "hangul": "ㅛ",
+      "roman": "yo"
+    },
+    {
+      "hangul": "ㅜ",
+      "roman": "u"
+    },
+    {
+      "hangul": "ㅠ",
+      "roman": "yu"
+    },
+    {
+      "hangul": "ㅡ",
+      "roman": "eu"
+    },
+    {
+      "hangul": "ㅣ",
+      "roman": "i"
+    }
+  ],
+  "simple_consonants": [
+    {
+      "hangul": "ㄱ",
+      "roman": "g/k"
+    },
+    {
+      "hangul": "ㄴ",
+      "roman": "n"
+    },
+    {
+      "hangul": "ㄷ",
+      "roman": "d/t"
+    },
+    {
+      "hangul": "ㄹ",
+      "roman": "r/l"
+    },
+    {
+      "hangul": "ㅁ",
+      "roman": "m"
+    },
+    {
+      "hangul": "ㅂ",
+      "roman": "b/p"
+    },
+    {
+      "hangul": "ㅅ",
+      "roman": "s"
+    },
+    {
+      "hangul": "ㅇ",
+      "roman": "ng"
+    },
+    {
+      "hangul": "ㅈ",
+      "roman": "j"
+    },
+    {
+      "hangul": "ㅊ",
+      "roman": "ch"
+    },
+    {
+      "hangul": "ㅋ",
+      "roman": "k"
+    },
+    {
+      "hangul": "ㅌ",
+      "roman": "t"
+    },
+    {
+      "hangul": "ㅍ",
+      "roman": "p"
+    },
+    {
+      "hangul": "ㅎ",
+      "roman": "h"
+    }
+  ],
+  "double_consonants": [
+    {
+      "hangul": "ㄲ",
+      "roman": "kk"
+    },
+    {
+      "hangul": "ㄸ",
+      "roman": "tt"
+    },
+    {
+      "hangul": "ㅃ",
+      "roman": "pp"
+    },
+    {
+      "hangul": "ㅆ",
+      "roman": "ss"
+    },
+    {
+      "hangul": "ㅉ",
+      "roman": "jj"
+    }
+  ],
+  "complex_vowels": [
+    {
+      "hangul": "ㅢ",
+      "roman": "ui"
+    },
+    {
+      "hangul": "ㅚ",
+      "roman": "oe"
+    },
+    {
+      "hangul": "ㅐ",
+      "roman": "ae"
+    },
+    {
+      "hangul": "ㅟ",
+      "roman": "wi"
+    },
+    {
+      "hangul": "ㅔ",
+      "roman": "e"
+    },
+    {
+      "hangul": "ㅒ",
+      "roman": "yae"
+    },
+    {
+      "hangul": "ㅖ",
+      "roman": "ye"
+    },
+    {
+      "hangul": "ㅘ",
+      "roman": "wa"
+    },
+    {
+      "hangul": "ㅝ",
+      "roman": "wo"
+    },
+    {
+      "hangul": "ㅙ",
+      "roman": "wae"
+    },
+    {
+      "hangul": "ㅞ",
+      "roman": "we"
+    }
+  ]
+}
