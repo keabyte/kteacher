@@ -1,38 +1,14 @@
-import React from "react";
-import hangul from "../../hangul.json";
-import CheatSheetTile from "./CheatSheetTile";
+import hangul from '../../hangul.json';
+import CheatSheetCharacterSet from "./CheatSheetCharacterSet";
 
 const CheatSheet = () => {
   return (
-    <>
-      <div>
-        <div className="text-3xl font-bold underline">Simple vowels</div>
-        {hangul.simple_vowels.map((it) => (
-          <CheatSheetTile key={it.hangul} character={it}></CheatSheetTile>
-        ))}
-      </div>
-
-      <div>
-        <h4>Simple consonants</h4>
-        {hangul.simple_consonants.map((it) => (
-          <CheatSheetTile key={it.hangul} character={it}></CheatSheetTile>
-        ))}
-      </div>
-
-      <div>
-        <h4>Double consonants</h4>
-        {hangul.double_consonants.map((it) => (
-          <CheatSheetTile key={it.hangul} character={it}></CheatSheetTile>
-        ))}
-      </div>
-
-      <div>
-        <h4>Complex vowels</h4>
-        {hangul.complex_vowels.map((it) => (
-          <CheatSheetTile key={it.hangul} character={it}></CheatSheetTile>
-        ))}
-      </div>
-    </>
+    <div className="p-4">
+      <CheatSheetCharacterSet characters={hangul.simple_vowels} title="Simple vowels"></CheatSheetCharacterSet>
+      <CheatSheetCharacterSet characters={hangul.simple_consonants} title="Simple consonants"></CheatSheetCharacterSet>
+      <CheatSheetCharacterSet characters={hangul.complex_vowels} title="Complex vowels"></CheatSheetCharacterSet>
+      <CheatSheetCharacterSet characters={hangul.double_consonants} title="Double consonants"></CheatSheetCharacterSet>
+    </div>
   );
 };
 
