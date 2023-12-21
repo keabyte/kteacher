@@ -3,7 +3,7 @@ import CheatSheetCharacterSet from './CheatSheetCharacterSet';
 
 const CheatSheet = () => {
 	return (
-		<div className="p-4">
+		<div>
 			<CheatSheetCharacterSet characters={hangul.simple_vowels} title="Simple vowels"></CheatSheetCharacterSet>
 			<CheatSheetCharacterSet
 				characters={hangul.simple_consonants}

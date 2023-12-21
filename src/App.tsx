@@ -4,12 +4,14 @@ import PlayPage from './pages/PlayPage';
 
 const App = () => {
 	return (
-		<BrowserRouter>
-			<Routes>
-				<Route path="/" Component={PlayPage} />
-				<Route path="/overview" Component={CheatSheetPage} />
-			</Routes>
-		</BrowserRouter>
+		<div className="p-4">
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" Component={PlayPage} />
+					<Route path="/overview" Component={CheatSheetPage} />
+				</Routes>
+			</BrowserRouter>
+		</div>
 	);
 };
 

@@ -1,28 +1,33 @@
 import { useState } from 'react';
 import hangul from '../../hangul.json';
+import { Character } from '../../types/Character';
 import FlashCard from './FlashCard';
 import { FlashCardAnswer } from './FlashCardAnswer';
 
 const MIN_QUESTION_POOL_SIZE = 3;
 const ANSWER_OPTION_COUNT = 4;
 
-const getRandomElement = array => {
+function getRandomElement(array: any[]) {
 	return array[Math.floor(Math.random() * array.length)];
+}
+
+declare type FlashCardGameModel = {
+	questionPool: Character[];
+	currentCharacter: Character;
+	answerOptions: Character[];
 };
 
-const FlashCardGame = () => {
+const FlashCardGame = (): FlashCardGameModel => {
 	function resetModel() {
 		const currentCharacter = getRandomElement(allCharacters);
 		return {
 			questionPool: allCharacters,
-			correctAnswers: [],
-			incorrectAnswers: [],
 			currentCharacter,
 			answerOptions: generateAnswerOptions(currentCharacter)
 		};
 	}
 
-	function generateAnswerOptions(currentCharacter) {
+	function generateAnswerOptions(currentCharacter: Character) {
 		const answerOptionIndex = Math.floor(Math.random() * ANSWER_OPTION_COUNT);
 		const answerOptionPool = allCharacters.filter(it => it.hangul !== currentCharacter.hangul);
 		const options = [];
@@ -40,13 +45,8 @@ const FlashCardGame = () => {
 		return options;
 	}
 
-	function checkAnswer(character) {
-		if (character.hangul === model.currentCharacter.hangul) {
-			model.correctAnswers.push(model.currentCharacter);
-		} else {
-			model.incorrectAnswers.push(model.currentCharacter);
-		}
-
+	function checkAnswer(character: Character) {
+		console.log('Clicked answer', character);
 		nextQuestion();
 	}
 
@@ -72,31 +72,6 @@ const FlashCardGame = () => {
 					<FlashCardAnswer onClick={() => checkAnswer(it)} key={i} character={it}></FlashCardAnswer>
 				))}
 			</div>
-			{!!model.currentCharacter && process.env.NODE_ENV === 'development' && (
-				<div>
-					<div>
-						Answer {model.currentCharacter.roman} {model.currentCharacter.hangul}
-					</div>
-					Question pool ({model.questionPool.length})
-					<div>
-						{model.questionPool.map((it, i) => (
-							<span key={i}>{it.hangul}</span>
-						))}
-					</div>
-					Correct answers ({model.correctAnswers.length})
-					<div>
-						{model.correctAnswers.map((it, i) => (
-							<span key={i}>{it.hangul}</span>
-						))}
-					</div>
-					Incorrect answers ({model.incorrectAnswers.length})
-					<div>
-						{model.incorrectAnswers.map((it, i) => (
-							<span key={i}>{it.hangul}</span>
-						))}
-					</div>
-				</div>
-			)}
 		</div>
 	);
 };

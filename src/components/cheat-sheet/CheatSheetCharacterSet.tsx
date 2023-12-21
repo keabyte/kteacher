@@ -1,6 +1,7 @@
+import { Character } from '../../types/Character';
 import CheatSheetTile from './CheatSheetTile';
 
-const CheatSheetCharacterSet = ({ characters, title }) => {
+const CheatSheetCharacterSet = ({ characters, title }: { characters: Character[]; title: string }) => {
 	return (
 		<div className="pb-6">
 			<div className="text-2xl mb-1">{title}</div>

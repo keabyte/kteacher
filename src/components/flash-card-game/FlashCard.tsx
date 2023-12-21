@@ -1,6 +1,7 @@
+import { Character } from '../../types/Character';
 import './FlashCard.css';
 
-const FlashCard = ({ character, showRoman }) => {
+const FlashCard = ({ character, showRoman = false }: { character: Character; showRoman: boolean }) => {
 	return (
 		<div className="flash-card-tile">
 			<div className="text-6xl">{character.hangul}</div>
