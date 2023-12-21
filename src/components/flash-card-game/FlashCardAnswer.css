@@ -1,12 +1,12 @@
 .flash-card-answer {
-  outline: solid 2px rgb(56, 70, 79);
-  width: 10vw;
-  border-radius: 5px;
-  padding: 5px;
-  text-align: center;
-  cursor: pointer;
+	outline: solid 2px rgb(56, 70, 79);
+	width: 10vw;
+	border-radius: 5px;
+	padding: 5px;
+	text-align: center;
+	cursor: pointer;
 }
 
 .flash-card-answer:hover {
-  background: rgb(15, 27, 45);
+	background: rgb(15, 27, 45);
 }
