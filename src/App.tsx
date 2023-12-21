@@ -4,7 +4,7 @@ import PlayPage from './pages/PlayPage';
 
 const App = () => {
 	return (
-		<div className="p-4">
+		<div className="h-screen w-full p-4">
 			<BrowserRouter>
 				<Routes>
 					<Route path="/" Component={PlayPage} />

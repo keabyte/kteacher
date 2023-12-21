@@ -85,10 +85,12 @@ const FlashCardGame = () => {
 	const [model, setModel] = useState(resetModel());
 
 	return (
-		<div>
-			FlashCardGame
-			<FlashCard character={model.currentCharacter}></FlashCard>
-			<div className="mt-4">
+		<div className="flex flex-col items-center gap-5">
+			<div className="text-xl">What sound does this make?</div>
+			<div>
+				<FlashCard character={model.currentCharacter}></FlashCard>
+			</div>
+			<div>
 				{model.answerOptions.map((it, i) => (
 					<FlashCardAnswer
 						onClick={() => checkAnswer(it, i)}
@@ -98,34 +100,38 @@ const FlashCardGame = () => {
 					></FlashCardAnswer>
 				))}
 			</div>
-			{model.answerStatus === 'CORRECT' && (
-				<>
-					<div className="correct-section">
-						<div className="font-bold text-xl mb-2">
-							<FaCircleCheck className="inline-block" /> Correct!
+
+			<div>
+				{model.answerStatus === 'PENDING' && <div className="font-light text-sm">Click on your answer</div>}
+				{model.answerStatus === 'CORRECT' && (
+					<div className="items-start">
+						<div className="correct-section">
+							<div className="font-bold text-xl mb-2">
+								<FaCircleCheck className="inline-block" /> Correct!
+							</div>
+						</div>
+						<div onClick={nextQuestion} className="next-button correct-next-button">
+							Next question
 						</div>
 					</div>
-					<div onClick={nextQuestion} className="next-button correct-next-button">
-						Next question
-					</div>
-				</>
-			)}
-			{model.answerStatus === 'INCORRECT' && (
-				<>
-					<div className="incorrect-section mb-2">
-						<div className="font-bold text-xl">
-							<FaCircleXmark className="inline-block" /> Incorrect
+				)}
+				{model.answerStatus === 'INCORRECT' && (
+					<div className="items-start">
+						<div className="incorrect-section mb-2">
+							<div className="font-bold text-xl">
+								<FaCircleXmark className="inline-block" /> Incorrect
+							</div>
+							<div>
+								<span className="font-bold">Correct answer:</span>
+								<div>{model.currentCharacter.roman}</div>
+							</div>
 						</div>
-						<div>
-							<span className="font-bold">Correct answer:</span>
-							<div>{model.currentCharacter.roman}</div>
+						<div onClick={nextQuestion} className="next-button incorrect-next-button">
+							Next question
 						</div>
 					</div>
-					<div onClick={nextQuestion} className="next-button incorrect-next-button">
-						Next question
-					</div>
-				</>
-			)}
+				)}
+			</div>
 		</div>
 	);
 };
