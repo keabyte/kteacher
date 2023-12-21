@@ -1,0 +1,27 @@
+.correct-next-button {
+	background: #93d434;
+	color: rgb(15, 27, 45);
+	border-bottom: solid 4px #7ab934;
+}
+
+.incorrect-next-button {
+	background: #ef5555;
+	color: rgb(15, 27, 45);
+	border-bottom: solid 4px #d84647;
+}
+
+.correct-section {
+	color: #93d434;
+}
+
+.incorrect-section {
+	color: #ef5555;
+}
+
+.next-button {
+	padding: 10px 8vw;
+	width: fit-content;
+	border-radius: 15px;
+	cursor: pointer;
+	font-weight: bold;
+}

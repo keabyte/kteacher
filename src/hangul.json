@@ -44,7 +44,7 @@
 	"simple_consonants": [
 		{
 			"hangul": "ㄱ",
-			"roman": "g/k"
+			"roman": "g"
 		},
 		{
 			"hangul": "ㄴ",
@@ -52,11 +52,11 @@
 		},
 		{
 			"hangul": "ㄷ",
-			"roman": "d/t"
+			"roman": "d"
 		},
 		{
 			"hangul": "ㄹ",
-			"roman": "r/l"
+			"roman": "r"
 		},
 		{
 			"hangul": "ㅁ",
@@ -64,7 +64,7 @@
 		},
 		{
 			"hangul": "ㅂ",
-			"roman": "b/p"
+			"roman": "b"
 		},
 		{
 			"hangul": "ㅅ",

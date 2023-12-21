@@ -1,13 +1,15 @@
 import { useState } from 'react';
+import { FaCircleCheck, FaCircleXmark } from 'react-icons/fa6';
 import hangul from '../../hangul.json';
 import { Character } from '../../types/Character';
 import FlashCard from './FlashCard';
 import { FlashCardAnswer } from './FlashCardAnswer';
+import './FlashCardGame.css';
 
 const MIN_QUESTION_POOL_SIZE = 3;
 const ANSWER_OPTION_COUNT = 4;
 
-function getRandomElement(array: any[]) {
+function getRandomElement<T>(array: T[]): T {
 	return array[Math.floor(Math.random() * array.length)];
 }
 
@@ -15,15 +17,21 @@ declare type FlashCardGameModel = {
 	questionPool: Character[];
 	currentCharacter: Character;
 	answerOptions: Character[];
+	answerStatus: AnswerStatus;
+	answerOptionSelectedIndex: null | number;
 };
 
-const FlashCardGame = (): FlashCardGameModel => {
-	function resetModel() {
+declare type AnswerStatus = 'PENDING' | 'CORRECT' | 'INCORRECT';
+
+const FlashCardGame = () => {
+	function resetModel(): FlashCardGameModel {
 		const currentCharacter = getRandomElement(allCharacters);
 		return {
 			questionPool: allCharacters,
 			currentCharacter,
-			answerOptions: generateAnswerOptions(currentCharacter)
+			answerOptions: generateAnswerOptions(currentCharacter),
+			answerStatus: 'PENDING',
+			answerOptionSelectedIndex: null
 		};
 	}
 
@@ -45,12 +53,25 @@ const FlashCardGame = (): FlashCardGameModel => {
 		return options;
 	}
 
-	function checkAnswer(character: Character) {
+	function checkAnswer(character: Character, index: number) {
+		if (model.answerStatus !== 'PENDING') {
+			return;
+		}
+
 		console.log('Clicked answer', character);
-		nextQuestion();
+
+		model.answerOptionSelectedIndex = index;
+		if (character.hangul === model.currentCharacter.hangul) {
+			model.answerStatus = 'CORRECT';
+		} else {
+			model.answerStatus = 'INCORRECT';
+		}
+		setModel({ ...model });
 	}
 
 	function nextQuestion() {
+		model.answerOptionSelectedIndex = null;
+		model.answerStatus = 'PENDING';
 		if (model.questionPool.length < MIN_QUESTION_POOL_SIZE) {
 			model.questionPool = allCharacters;
 		}
@@ -67,11 +88,44 @@ const FlashCardGame = (): FlashCardGameModel => {
 		<div>
 			FlashCardGame
 			<FlashCard character={model.currentCharacter}></FlashCard>
-			<div>
+			<div className="mt-4">
 				{model.answerOptions.map((it, i) => (
-					<FlashCardAnswer onClick={() => checkAnswer(it)} key={i} character={it}></FlashCardAnswer>
+					<FlashCardAnswer
+						onClick={() => checkAnswer(it, i)}
+						key={i}
+						character={it}
+						selected={model.answerOptionSelectedIndex === i}
+					></FlashCardAnswer>
 				))}
 			</div>
+			{model.answerStatus === 'CORRECT' && (
+				<>
+					<div className="correct-section">
+						<div className="font-bold text-xl mb-2">
+							<FaCircleCheck className="inline-block" /> Correct!
+						</div>
+					</div>
+					<div onClick={nextQuestion} className="next-button correct-next-button">
+						Next question
+					</div>
+				</>
+			)}
+			{model.answerStatus === 'INCORRECT' && (
+				<>
+					<div className="incorrect-section mb-2">
+						<div className="font-bold text-xl">
+							<FaCircleXmark className="inline-block" /> Incorrect
+						</div>
+						<div>
+							<span className="font-bold">Correct answer:</span>
+							<div>{model.currentCharacter.roman}</div>
+						</div>
+					</div>
+					<div onClick={nextQuestion} className="next-button incorrect-next-button">
+						Next question
+					</div>
+				</>
+			)}
 		</div>
 	);
 };
