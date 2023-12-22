@@ -6,7 +6,7 @@ import FlashCard from './FlashCard';
 import FlashCardAnswer from './FlashCardAnswer';
 import './FlashCardGame.css';
 
-const MIN_QUESTION_POOL_SIZE = 3;
+const MIN_QUESTION_POOL_SIZE = 5;
 const ANSWER_OPTION_COUNT = 4;
 
 function getRandomElement<T>(array: T[]): T {
@@ -81,6 +81,17 @@ const FlashCardGame = () => {
 		setModel({ ...model });
 	}
 
+	const onKeyDown = (e: any) => {
+		if (e.key === ' ') {
+			if (model.answerStatus === 'CORRECT' || model.answerStatus === 'INCORRECT') {
+				window.removeEventListener('keydown', onKeyDown);
+				nextQuestion();
+			}
+		}
+	};
+
+	window.addEventListener('keydown', onKeyDown);
+
 	const allCharacters = [...hangul.simple_consonants, ...hangul.simple_vowels];
 	const [model, setModel] = useState(resetModel());
 
@@ -102,6 +113,7 @@ const FlashCardGame = () => {
 			</div>
 
 			<div>
+				{model.answerStatus}
 				{model.answerStatus === 'PENDING' && <div className="font-light text-sm">Click on your answer</div>}
 				{model.answerStatus === 'CORRECT' && (
 					<div className="items-start">
