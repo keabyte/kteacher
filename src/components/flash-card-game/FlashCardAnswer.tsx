@@ -1,7 +1,7 @@
 import { Character } from '../../types/Character';
 import './FlashCardAnswer.css';
 
-export const FlashCardAnswer = ({
+const FlashCardAnswer = ({
 	onClick,
 	selected,
 	character
@@ -16,3 +16,5 @@ export const FlashCardAnswer = ({
 		</div>
 	);
 };
+
+export default FlashCardAnswer;

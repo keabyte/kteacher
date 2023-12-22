@@ -3,7 +3,7 @@ import { FaCircleCheck, FaCircleXmark } from 'react-icons/fa6';
 import hangul from '../../hangul.json';
 import { Character } from '../../types/Character';
 import FlashCard from './FlashCard';
-import { FlashCardAnswer } from './FlashCardAnswer';
+import FlashCardAnswer from './FlashCardAnswer';
 import './FlashCardGame.css';
 
 const MIN_QUESTION_POOL_SIZE = 3;
