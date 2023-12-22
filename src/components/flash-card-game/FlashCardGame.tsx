@@ -85,6 +85,7 @@ const FlashCardGame = () => {
 		if (e.key === ' ') {
 			if (model.answerStatus === 'CORRECT' || model.answerStatus === 'INCORRECT') {
 				window.removeEventListener('keydown', onKeyDown);
+				e.preventDefault();
 				nextQuestion();
 			}
 		}
@@ -113,7 +114,6 @@ const FlashCardGame = () => {
 			</div>
 
 			<div>
-				{model.answerStatus}
 				{model.answerStatus === 'PENDING' && <div className="font-light text-sm">Click on your answer</div>}
 				{model.answerStatus === 'CORRECT' && (
 					<div className="items-start">
