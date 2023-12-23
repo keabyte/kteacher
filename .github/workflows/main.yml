@@ -29,6 +29,6 @@ jobs:
                   args: --acl public-read --delete
               env:
                   AWS_S3_BUCKET: ${{ vars.AWS_S3_BUCKET_NAME }}
-                  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_WEBSITE_DEPLOYER_ACCESS_KEY }}
-                  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_WEBSITE_DEPLOYER_SECRET_KEY }}
+                  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_S3_DEPLOYER_ACCESS_KEY_ID }}
+                  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_S3_DEPLOYER_ACCESS_KEY_SECRET }}
                   SOURCE_DIR: 'dist'
