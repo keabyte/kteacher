@@ -1,4 +1,4 @@
-name: Caller Workflow
+name: Build & deploy
 on:
     push:
         branches: [main]
@@ -6,3 +6,4 @@ on:
 jobs:
     build:
         uses: keabyte/keabyte-workflows/.github/workflows/reactjs-build.yml@main
+        secrets: inherit
