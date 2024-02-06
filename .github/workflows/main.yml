@@ -7,3 +7,5 @@ jobs:
     build:
         uses: keabyte/keabyte-workflows/.github/workflows/reactjs-build.yml@main
         secrets: inherit
+        with:
+            AWS_S3_BUCKET_NAME: "kteacher.demo.keabyte.com"
